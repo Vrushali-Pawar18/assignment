@@ -55,6 +55,12 @@ body {
 .progressBarValue {
   background-color: white;
 } */
+progress::-webkit-progress-bar {
+  background-color: gray;
+}
+progress::-webkit-progress-value {
+  background-color: white;
+}
 
 #collapse1 {
   background-color: black;
