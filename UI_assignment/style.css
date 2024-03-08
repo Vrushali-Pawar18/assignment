@@ -46,15 +46,15 @@ body {
 
 }
 
-#progressBar {
+/* #progressBar {
   width: 50%;
   height: 100%;
-  background-color: #f3f3f3;
+  background-color: white;
 }
 
 .progressBarValue {
-  background-color: #4caf50;
-}
+  background-color: white;
+} */
 
 #collapse1 {
   background-color: black;
@@ -242,14 +242,14 @@ body {
   }
   
   /* #nstar {
-    color: gray;
+    color: white;
   } */
   .bi.empty{
     color: grey;
   }
   #filled-star::before {
     content: "\2605";
-    /* color: grey; */
+    /* color: white; */
     size: 100px;
   }
   
