@@ -1,9 +1,9 @@
 const assignment_file = require("./amazonreviews_copy_2.json");
 //1)
 
-// for(let asin of assignment_file.reviews){
-//     console.log( asin.asin, asin.reviews.length);
-// }
+for(let asin of assignment_file.reviews){
+    console.log( asin.asin, asin.reviews.length);
+}
    
 
 // //2)
@@ -92,63 +92,67 @@ const assignment_file = require("./amazonreviews_copy_2.json");
 
 
 // //4)
+// for(let asin of assignment_file.reviews){
+// let asin = assignment_file.reviews[4];
 
-// for(asin of assignment_file.reviews){
-//     let i=0;
-//     for(let rev of asin.reviews){
-//         if(rev.rating>4){
-//             asin.reviews.splice(i,1);
-//         }
-//         i=i+1;
+// for(i = asin.reviews.length - 1; i >= 0; --i) {
+//     if(asin.reviews[i].rating < 3) {
+//         //console.log(asin.reviews[i]);
+//         asin.reviews.splice(i, 1);
 //     }
-//     console.log(asin.reviews)
 // }
 
-
-
-
-//B0CP6C63Y3
-
-// for(let rev of assignment_file.reviews[4].reviews){
-//             if(rev.rating<3){
-//                 assignment_file.reviews[4].reviews.splice(ind,1);
-//                 console.log(assignment_file.reviews[4].reviews);
-//             }
-//         }
-
-// for(let i=0;i<assignment_file.reviews[4].length;i++){
-//     if(assignment_file.reviews[4].reviews[i]<3){
-//         assignment_file.reviews[4].splice(i,1);
-//         console.log(assignment_file.reviews[4].reviews);
+// for(i = 0; i < asin.reviews.length;) {
+//     if(asin.reviews[i].rating < 2) {
+//         //console.log(asin.reviews[i]);
+//         asin.reviews.splice(i, 1);
+//     } else {
+//         ++i
 //     }
+// }
 
 // }
 
+// console.log(assignment_file.reviews);
+
+// const FileSystem = require("fs");
+//  FileSystem.writeFile('file.json', JSON.stringify(assignment_file), (error) => {
+//     if (error) throw error;
+//   });
+// console.log(asin.reviews);
+
+
+//************************************************************************************************** */
 
 // //6)
 
 
 //B07LD4GLKD
 
-// let i =0;
-// const data2 = assignment_file;
-// console.log(data2.reviews.length);
-// for(let asin of data2.reviews){
-//     if(asin.reviews.length === 100){
-//         // console.log(asin.asin);
-//         // console.log(data2.reviews.length);
-//         data2.reviews.splice(i,1);
-//         // console.log(data2.reviews.length);
-//         // console.log("-------------------------------------")
 
-//     }
-//     i++;
-//     // console.log(data2.reviews);
+// const data2 = require("./amazonreviews_copy_2.json");
+let i = 0;
+// const data = require("./amazonreviews_copy_2.json");
+
+const data2 = JSON.parse(JSON.stringify(assignment_file));
+// console.log(clonedObject);
+console.log(data2.reviews.length);
+for(let asin of data2.reviews){
+    if(asin.reviews.length === 100){
+        // console.log(asin.asin);
+        // console.log(data2.reviews.length);
+        data2.reviews.splice(i,1);
+        // console.log(data2.reviews.length);
+        // console.log("-------------------------------------")
+
+    }
+    i++;
+    // console.log(data2.reviews);
    
-// }
-// console.log(data2.reviews.length);
-// console.log("======");
-// console.log(assignment_file.reviews.length);
+}
+console.log(data2.reviews.length);
+console.log("======");
+console.log(assignment_file.reviews.length);
 
 
 //*****************************************************************************************************************8 */
@@ -158,76 +162,35 @@ const assignment_file = require("./amazonreviews_copy_2.json");
 
  //5) 
 
-//  for(asin of assignment_file.reviews){
-//     for(rev of asin.reviews){
-//             const sorted = rev.Date.sort(
-//                 (dateA,dateB) => new Date(dateB) - new Date(dateA));
-//                 console.log(sorted)
-//     }
-//  }
-//***************************************************************************************************** */
-
-//B0CP6C63Y3 5 
-
-// for(let rev of assignment_file.reviews[4].reviews){
-//     assignment_file.reviews[4].reviews.map(obj => {
-//         return {...obj,date : new Date(obj.date)};
-//     });
-
-//     const sorted =assignment_file.reviews[4].reviews.sort(
-//         (objA, objB) => Number(objB.date) - Number(objA.date),
-//       );
-//       console.log(sorted);
+// function sortByDate(reviews1, reviews2 ){
+//     console.log(new Date(reviews2.date.utc) - new Date(reviews1.date.utc));
+//     return new Date(reviews2.date.utc) - new Date(reviews1.date.utc);
 // }
-//*********************************************************************************************** */
 
 // for(asin of assignment_file.reviews){
-//     for(rev of asin.reviews){
-//         asin.reviews.map(review => {
-//             return {...review, date : new Date(review.rev.Date)};
-//          });
 
-//          asin.reviews.sort((review1,review2) => 
-//          new Date(review2.Date) - new Date(review1.Date))
+//     //let asin =  assignment_file.reviews[4];
+//     let reviewsArray = asin.reviews;
+//     for(dt of reviewsArray){
+//         console.log(dt.date.utc);
 //     }
+//     reviewsArray.sort(sortByDate);
+//     console.log(reviewsArray);
+//     for(dt of reviewsArray){
+//         console.log(dt.date.utc);
+//     }
+
 // }
 
-//******************************************************************************************************** */
+//*********************************************************************** */
 
 // for(asin of assignment_file.reviews){
-//     asin.reviews.sort(
-//         (review1,review2) => new Date(review2.Date) - new Date(review1.Date))
-// }
-//************************************************************************************************* */
-
-function Asort(reviews, par) {
-    let swapped;
-    do {
-        swapped = false;
-        for (let i = 0; i < reviews.length - 1; i++) {
-            if (reviews[i][par] > reviews[i + 1][par]) {
-                let temp = reviews[i];
-                reviews[i] = reviews[i + 1];
-                reviews[i + 1] = temp;
-                swapped = true;
-            }
-        }
-    } while (swapped);
-}
-
-for (let asin of assignment_file.reviews) {
-    for(rev of asin.reviews){
-        let par = "Date"; 
-    Asort(asin.reviews, par);
-    }
-    for (let i = asin.reviews.length; i > 0; i--) {
-        console.log(asin.reviews[i]);
-     }
-}
-
-
-
-
-
+//     // console.log(asin.reviews);
+//             asin.reviews.sort(
+//                 (asin1, asin2) => new Date(asin2.reviews.Date.utc) - new Date(asin1.reviews.Date.utc) )
+//                 console.log(asin.reviews);
+        
+//     }
+    
 
 
